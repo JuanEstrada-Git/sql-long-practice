@@ -1,1 +1,25 @@
--- Your code here
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE customers (
+  id INTEGER PRIMARY KEY,
+
+  name VARCHAR(40) NOT NULL,
+
+  phone CHAR(10) UNIQUE,
+
+  email VARCHAR(255) UNIQUE,
+
+  points INTEGER NOT NULL DEFAULT 5,
+
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE coffee_orders (
+  id INTEGER PRIMARY KEY,
+
+  is_redeemed BOOLEAN NOT NULL DEFAULT 0,
+
+  ordered_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
